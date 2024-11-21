@@ -1,0 +1,135 @@
+<!-- Add Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js"></script>
+
+<script>
+  // Your Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyCI32OAOL9YKwT1E055dZ8DrxlFUg_wH8Y",
+    authDomain: "crichton-bafe6.firebaseapp.com",
+    projectId: "crichton-bafe6",
+    storageBucket: "crichton-bafe6.firebasestorage.app",
+    messagingSenderId: "788113197174",
+    appId: "1:788113197174:web:c434e19b367d1bc1283757",
+    measurementId: "G-0JY4QYLS6D"
+  };
+
+  // Initialize Firebase
+  const app = firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const db = firebase.database();
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crichton | Therapy Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar">
+      <div class="logo-container">
+        <img src="Logo.png" alt="Logo" class="logo-img">
+        <div class="logo">Crichton</div>
+    </div>
+        <nav>
+            <ul>
+                <li><a href="signup.html">Login</a></li>
+                <li><a href="Signup.html">Signup</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to Crichton</h1>
+        <p>Your trusted platform for therapy solutions tailored for ADHD and neurologically underdeveloped kids.</p>
+        <div class="cta-buttons">
+            <a href="Signup.html" class="btn">Get Started</a>
+            <a href="#" class="btn btn-secondary">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Why Choose Crichton?</h2>
+        <div class="feature-list">
+            <div class="feature-item">
+                <h3>Expert-Designed Therapy</h3>
+                <p>Therapies crafted by professionals for maximum effectiveness.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Comprehensive Resources</h3>
+                <p>Videos and materials tailored to age and symptoms.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Flexible Plans</h3>
+                <p>Choose a subscription that fits your needs and budget.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Crichton. All Rights Reserved.</p>
+        <ul class="social-icons">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Instagram</a></li>
+        </ul>
+    </footer>
+    <script>
+        const signupForm = document.querySelector('.form-container');
+      
+        signupForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+      
+          const name = document.getElementById('name').value;
+          const email = document.getElementById('email').value;
+          const password = document.getElementById('password').value;
+      
+          auth.createUserWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+              const user = userCredential.user;
+      
+              // Save user info to Firebase Realtime Database
+              db.ref('users/' + user.uid).set({
+                name: name,
+                email: email
+              });
+      
+              alert('Signup successful!');
+              window.location.href = 'login.html'; // Redirect to login
+            })
+            .catch((error) => {
+              alert(error.message);
+            });
+        });
+      </script>
+
+<script>
+    const loginForm = document.querySelector('.form-container');
+  
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+  
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+  
+      auth.signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          alert('Login successful!');
+          window.location.href = 'dashboard.html'; // Redirect to dashboard or home
+        })
+        .catch((error) => {
+          alert('Invalid email or password.');
+        });
+    });
+  </script>
+  
+</body>
+</html>

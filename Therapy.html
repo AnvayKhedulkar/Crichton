@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Therapy - Crichton</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar">
+        <div class="logo-container">
+            <img src="Logo.png" alt="Logo" class="logo-img">
+            <div class="logo">Crichton</div>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="analyse.html">Analyse</a></li>
+                <li><a href="#" id="logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Therapy Section -->
+    <section class="therapy-section">
+        <h1>Therapy Videos</h1>
+        <div id="video-container" class="video-grid"></div>
+    </section>
+
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js"></script>
+
+    <script>
+        // Firebase Config (reuse your Firebase config from previous pages)
+        const firebaseConfig = {
+            apiKey: "AIzaSyCI32OAOL9YKwT1E055dZ8DrxlFUg_wH8Y",
+            authDomain: "crichton-bafe6.firebaseapp.com",
+            projectId: "crichton-bafe6",
+            storageBucket: "crichton-bafe6.firebasestorage.app",
+            messagingSenderId: "788113197174",
+            appId: "1:788113197174:web:c434e19b367d1bc1283757",
+            measurementId: "G-0JY4QYLS6D"
+        };
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        // Logout functionality
+        document.getElementById('logout').addEventListener('click', (e) => {
+            e.preventDefault();
+            auth.signOut()
+                .then(() => {
+                    alert("Logged out successfully.");
+                    window.location.href = "login.html";
+                })
+                .catch((error) => {
+                    alert("Error logging out: " + error.message);
+                });
+        });
+
+        // Get analysis result
+        const analysisResult = JSON.parse(localStorage.getItem("analysisResult"));
+        if (!analysisResult) {
+            alert("No analysis result found. Please complete the analysis form.");
+            window.location.href = "analyse.html";
+        }
+
+        // Define video data
+        const videos = {
+            ADHD: {
+                Child: ["adhd_child_1.mp4", "adhd_child_2.mp4"],
+                Teen: ["adhd_teen_1.mp4", "adhd_teen_2.mp4"],
+                Adult: ["adhd_adult_1.mp4", "adhd_adult_2.mp4"]
+            },
+            Autism: {
+                Child: ["autism_child_1.mp4", "autism_child_2.mp4"],
+                Teen: ["autism_teen_1.mp4", "autism_teen_2.mp4"],
+                Adult: ["autism_adult_1.mp4", "autism_adult_2.mp4"]
+            }
+        };
+
+        // Display videos based on analysis result
+        const { disorder, ageGroup } = analysisResult;
+        const videoList = videos[disorder][ageGroup];
+        const videoContainer = document.getElementById("video-container");
+
+        if (videoList) {
+            videoList.forEach((video) => {
+                const videoElement = document.createElement("div");
+                videoElement.classList.add("video-card");
+                videoElement.innerHTML = `
+                    <video controls>
+                        <source src="videos/${video}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p>${video.replace(/_/g, " ").replace(".mp4", "")}</p>
+                `;
+                videoContainer.appendChild(videoElement);
+            });
+        } else {
+            videoContainer.innerHTML = "<p>No videos available for this category.</p>";
+        }
+
+        // Redirect if not logged in
+        auth.onAuthStateChanged((user) => {
+            if (!user) {
+                alert("You need to log in to access this page.");
+                window.location.href = "login.html";
+            }
+        });
+    </script>
+</body>
+</html>

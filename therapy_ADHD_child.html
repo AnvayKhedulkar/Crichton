@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Therapy for ADHD - Child</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            margin: 0;
+        }
+
+        .video-card-container {
+            display: flex;
+            justify-content: space-around;
+            width: 80%;
+            margin-top: 30px;
+        }
+
+        .video-card {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            width: 30%;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .video-card img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .video-card h3 {
+            margin-top: 10px;
+            font-size: 1.2rem;
+        }
+
+        .video-card button {
+            margin-top: 15px;
+            background-color: #2575fc;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .video-card button:hover {
+            background-color: #6a11cb;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Therapy for ADHD - Child</h1>
+    <div class="video-card-container">
+        <div class="video-card">
+            <img src="Assets/ADHD1.png" alt="">
+            <h3>What is ADHD</h3>
+            <button onclick="playVideo('Assets/What_is_ADHD.mp4')">Play Video</button>
+        </div>
+        <div class="video-card">
+            <img src="Assets/ADHD2.png" alt="">
+            <h3>ADHD Medication</h3>
+            <button onclick="playVideo('Assets/ADHD_Medication.mp4')">Play Video</button>
+        </div>
+        <div class="video-card">
+            <img src="Assets/ADHD3.png" alt="">
+            <h3>How to practice Mindfulness</h3>
+            <button onclick="playVideo('Assets/How_to_Practice_Mindfulness.mp4')">Play Video</button>
+        </div>
+    </div>
+
+    <script>
+        function playVideo(videoPath) {
+            window.location.href = videoPath;  // Redirect to the video file
+        }
+    </script>
+</body>
+</html>

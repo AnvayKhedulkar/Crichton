@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyse - Crichton</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar">
+        <div class="logo-container">
+            <img src="Logo.png" alt="Logo" class="logo-img">
+            <div class="logo">Crichton</div>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="#" id="logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Analyse Section -->
+    <section class="form-section">
+        <h1>Analyse Neurodevelopmental Disorder and Age</h1>
+        <div class="form-container">
+            <form id="analyse-form">
+                <label for="disorder">What disorder do you suspect?</label>
+                <select id="disorder" required>
+                    <option value="ADHD">ADHD</option>
+                    <option value="Autism">Autism</option>
+                </select>
+
+                <label for="age">Please enter the patient's age:</label>
+                <input type="number" id="age" min="1" max="100" required>
+
+                <button type="submit" class="btn">Analyse</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Firebase Scripts -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js"></script> -->
+
+    <script>
+        // Firebase Config
+        // const firebaseConfig = {
+        //     apiKey: "AIzaSyCI32OAOL9YKwT1E055dZ8DrxlFUg_wH8Y",
+        //     authDomain: "crichton-bafe6.firebaseapp.com",
+        //     projectId: "crichton-bafe6",
+        //     storageBucket: "crichton-bafe6.firebasestorage.app",
+        //     messagingSenderId: "788113197174",
+        //     appId: "1:788113197174:web:c434e19b367d1bc1283757",
+        //     measurementId: "G-0JY4QYLS6D"
+        // };
+
+        // Initialize Firebase
+        // const app = firebase.initializeApp(firebaseConfig);
+        // const auth = firebase.auth();
+
+        // Logout functionality
+        // document.getElementById('logout').addEventListener('click', (e) => {
+        //     e.preventDefault();
+        //     auth.signOut()
+        //         .then(() => {
+        //             alert("Logged out successfully.");
+        //             window.location.href = "login.html";
+        //         })
+        //         .catch((error) => {
+        //             alert("Error logging out: " + error.message);
+        //         });
+        // });
+
+        // Handle form submission for analysis
+        document.getElementById('analyse-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent page reload
+
+            // Get form values
+            const disorder = document.getElementById('disorder').value;
+            const age = parseInt(document.getElementById('age').value);
+
+            console.log('Disorder:', disorder);
+            console.log('Age:', age);
+
+            // Check if age is valid
+            if (isNaN(age) || age < 0) {
+                alert("Please enter a valid age.");
+                return;
+            }
+
+            // Redirect based on selected disorder
+            if (disorder === 'ADHD') {
+                console.log('Redirecting to ADHD subscription page...');
+                window.location.href = "adhd-subscription.html"; // Redirect to ADHD subscription page
+            } else if (disorder === 'Autism') {
+                console.log('Redirecting to Autism subscription page...');
+                window.location.href = "autism-subscription.html"; // Redirect to Autism subscription page
+            }
+        });
+
+        // Check user authentication
+        // auth.onAuthStateChanged((user) => {
+        //     if (!user) {
+        //         alert("You need to log in to access this page.");
+        //         window.location.href = "login.html";
+        //     }
+        // });
+    </script>
+</body>
+</html>

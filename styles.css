@@ -1,0 +1,437 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Header */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: linear-gradient(to bottom, hsl(297, 81%, 55%), rgba(255, 255, 255, 0));
+    color: #fff;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 2px; /* Adjust the gap between the logo image and text */
+}
+
+.logo-img {
+    width: 65px; /* Adjust logo size */
+    height: 60px; /* Adjust logo size */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-end;
+}
+
+.navbar ul li {
+    display: inline-block;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.navbar a:hover {
+    background-color: #ffd700;
+    color: black;
+}
+
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-buttons .btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    margin: 0.5rem;
+    background-color: #ffd700;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.cta-buttons .btn-secondary {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.cta-buttons .btn:hover {
+    background-color: white;
+    color: #333;
+}
+
+/* Features Section */
+.features {
+    padding: 1rem;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.feature-list {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.feature-item {
+    max-width: 300px;
+}
+
+.feature-item h3 {
+    margin-bottom: 0.5rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #333;
+    color: white;
+}
+
+footer .social-icons {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #ffd700;
+}
+
+
+/* Form Section */
+.form-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+    min-height: 100vh;
+}
+
+.form-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.form-container {
+    background-color: white;
+    color: black;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-container .btn {
+    display: block;
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #6a11cb;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.form-container .btn:hover {
+    background-color: #2575fc;
+}
+
+.form-container p {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.form-container a {
+    color: #6a11cb;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.form-container a:hover {
+    text-decoration: underline;
+}
+
+/* Dashboard Section */
+.dashboard-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+    min-height: 100vh;
+}
+
+.dashboard-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.dashboard-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.dashboard-content {
+    background-color: white;
+    color: black;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.dashboard-content p {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.dashboard-content .btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #6a11cb;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.dashboard-content .btn:hover {
+    background-color: #2575fc;
+}
+
+/* Form Section */
+.form-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+    min-height: 100vh;
+}
+
+.form-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.form-container {
+    background-color: white;
+    color: black;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-container input, .form-container select {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-container .btn {
+    display: block;
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #6a11cb;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.form-container .btn:hover {
+    background-color: #2575fc;
+}
+
+.form-container #analysis-result {
+    margin-top: 2rem;
+}
+
+.form-container #analysis-result h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.form-container #analysis-result p {
+    font-size: 1rem;
+    color: black;
+}
+
+.subscription-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+    min-height: 100vh;
+}
+
+.subscription-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.subscription-card {
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.subscription-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.subscription-card p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.subscription-card .btn {
+    padding: 0.8rem 1.5rem;
+    background-color: #6a11cb;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.subscription-card .btn:hover {
+    background-color: #2575fc;
+}
+
+/* General page background */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #6a11cb, #2575fc);    color: #fff;
+    min-height: 100vh;
+}
+
+/* Container alignment */
+.therapy-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.video-card {
+    background: rgba(255, 255, 255, 0.8);
+    color: #000;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Therapy for Autism - Child</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            margin: 0;
+        }
+
+        .video-card-container {
+            display: flex;
+            justify-content: space-around;
+            width: 80%;
+            margin-top: 30px;
+        }
+
+        .video-card {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            width: 30%;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .video-card img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .video-card h3 {
+            margin-top: 10px;
+            font-size: 1.2rem;
+        }
+
+        .video-card button {
+            margin-top: 15px;
+            background-color: #2575fc;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .video-card button:hover {
+            background-color: #6a11cb;
+        }
+    </style>
+</head>
+<body>
+    <h1>Therapy for Autism - Child</h1>
+    <div class="video-card-container">
+        <div class="video-card">
+            <img src="Assets/Autism1.png" alt="">
+            <h3>What is Autism</h3>
+            <button onclick="playVideo('Assets/What_is_Autism.mp4')">Play Video</button>
+        </div>
+        <div class="video-card">
+            <img src="Assets/Autism2.png" alt="">
+            <h3>What is Anxity</h3>
+            <button onclick="playVideo('Assets/What_is_Anxiety.mp4')">Play Video</button>
+        </div>
+        <div class="video-card">
+            <img src="Assets/Autism3.png" alt="">
+            <h3>Signs of a panic attack</h3>
+            <button onclick="playVideo('Assets/Signs_of_a_Panic_Attack.mp4')">Play Video</button>
+        </div>
+    </div>
+
+    <script>
+        function playVideo(videoPath) {
+            window.location.href = videoPath;  // Redirect to the video file
+        }
+    </script>
+</body>
+</html>
